@@ -2,6 +2,7 @@
 import './App.css'
 import Card from './components/Card'
 import Header from './components/header'
+import Sidebar from './components/SideBar'
 
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
     <>
     <Header></Header>
  <Card></Card>
+  <Sidebar></Sidebar>
     </>
   )
 }
