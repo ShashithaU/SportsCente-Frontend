@@ -1,0 +1,27 @@
+*{
+    margin: 0;
+    border: 0;
+}
+
+.progressBar{
+    color: wheat;
+
+    padding: 20px 100px 20px 100px;
+
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.ProgressContainer{
+    height: 20px;
+    width: 200px;
+    border: 2px solid white;
+    background-color: blue;
+    border-radius: 10px;
+}
+
+.ProgressContainer p{
+    text-align: center;
+    color: white;
+}
