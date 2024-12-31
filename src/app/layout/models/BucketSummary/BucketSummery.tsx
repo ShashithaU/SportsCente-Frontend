@@ -1,7 +1,11 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import style from './BucketSummery.module.css';
 
-const BucketSummery = ({ children }) => {
+interface BucketSummeryProps {
+    children: ReactNode;
+}
+
+const BucketSummery: React.FC<BucketSummeryProps> = ({ children }) => {
     return (
         <div className={style.BucketSummeryContainer}>
             <h3>Bucket Summery</h3>

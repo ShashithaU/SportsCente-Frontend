@@ -1,8 +1,15 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import BucketSummery from '../BucketSummary/BucketSummery';
 import style from './Cart.module.css';
 
-const Cart = ({ children, totalPrice, totShipping, total }) => {
+interface CartProps {
+    children: ReactNode;
+    totalPrice: number;
+    totShipping: number;
+    total: number;
+}
+
+const Cart: React.FC<CartProps> = ({ children, totalPrice, totShipping, total }) => {
     return (
         <div className={style.cart}>
             <div className={style.CartItem}>
