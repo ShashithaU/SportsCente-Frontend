@@ -2,6 +2,7 @@ import { Container, CssBaseline, ThemeProvider, createTheme } from "@mui/materia
 import Header from "./Header";
 import { useState } from "react";
 import Catalog from "../features/catalog/Catalog";
+import ShippingDetailsPage from "./models/ShippingDetailspage/ShippingDetails"
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -22,6 +23,7 @@ function App() {
     <Container sx={{ paddingTop: "64px" }}>
       <Catalog/>
     </Container>
+    <ShippingDetailsPage />
     </ThemeProvider>
   )
 }
