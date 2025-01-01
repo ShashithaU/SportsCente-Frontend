@@ -24,7 +24,7 @@ function App() {
     <Container sx={{ paddingTop: "64px" }}>
     <Catalog/>
     </Container>
-    <CartPage />
+    <ShippingDetailsPage/>
     </ThemeProvider>
   )
 }
