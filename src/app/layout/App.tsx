@@ -25,7 +25,6 @@ function App() {
     <Catalog/>
     </Container>
     <ShippingDetailsPage />
-    <CartPage />
     </ThemeProvider>
   )
 }
