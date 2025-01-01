@@ -13,16 +13,9 @@ function App() {
       mode:paletteType,
     }
   })
-  function handleThemeChange(){
-    setDarkMode(!darkMode);
-  }
   return (
     <ThemeProvider theme={theme}>
     <CssBaseline/>
-    <Header darkMode={darkMode} handleThemeChange={handleThemeChange}/>
-    <Container sx={{ paddingTop: "64px" }}>
-    <Catalog/>
-    </Container>
     <CartPage />
     </ThemeProvider>
   )
