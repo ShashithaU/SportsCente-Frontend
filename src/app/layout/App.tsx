@@ -3,7 +3,6 @@ import Header from "./Header";
 import { useState } from "react";
 import Catalog from "../features/catalog/Catalog";
 import ShippingDetailsPage from "./models/ShippingDetailspage/ShippingDetails"
-import CartPage from "./models/CartPage/CartPage";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
