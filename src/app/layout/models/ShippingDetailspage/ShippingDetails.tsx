@@ -8,7 +8,7 @@ const ShippingDetails: React.FC = () => {
         <div className={style.shippingDetails}>
             <ProgressBar 
                 check01={true}
-                check02={true}
+                check02={false}
                 check03={false}/>
             <UserDetails />
         </div>
