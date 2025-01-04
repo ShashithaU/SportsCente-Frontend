@@ -1,11 +1,12 @@
-import { Navigate, createBrowserRouter } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import App from "../layout/App";
-import HomePage from "../../features/home/HomePage";
-import Catalog from "../../features/catalog/Catalog";
-import ContactPage from "../../features/contact/ContactPage";
-import ProductDetails from "../../features/catalog/ProductDetails";
+
 import NotFound from "../errors/NotFoundError";
 import ServerError from "../errors/ServerError";
+import { ContactPage } from "@mui/icons-material";
+import Catalog from "../features/catalog/Catalog";
+import ProductDetails from "../features/catalog/ProductDetails";
+import HomePage from "../features/home/HomePage";
 
 export const router = createBrowserRouter([
     {
