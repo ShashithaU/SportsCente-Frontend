@@ -36,3 +36,23 @@ const PaymentDetails = () => {
 };
 
 export default PaymentDetails;
+const sendPaymentDetails = async (paymentDetails: any) => {
+    try {
+        const response = await fetch('http://localhost:8080/api/payment', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(paymentDetails),
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const data = await response.json();
+        console.log('Payment successful:', data);
+    } catch (error) {
+        console.error('Error sending payment details:', error);
+    }
+};
