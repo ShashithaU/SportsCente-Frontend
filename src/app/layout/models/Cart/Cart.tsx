@@ -1,6 +1,7 @@
 import React, { ReactNode } from 'react';
 import BucketSummery from '../BucketSummary/BucketSummery';
 import style from './Cart.module.css';
+import { Link } from 'react-router-dom';
 
 interface CartProps {
     children: ReactNode;
@@ -21,8 +22,8 @@ const Cart: React.FC<CartProps> = ({ children, totalPrice, totShipping, total })
                 <p>Total: {total}</p>
             </BucketSummery>
             <div className={style.CartButton}>
-                <button>Back</button>
-                <button>Next</button>
+                <button><Link to = '/'>Back</Link></button>
+                <button><Link to = '/paymaent'>next</Link></button>
             </div>
         </div>
     );

@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import style from './UserDetails.module.css';
-
+import { useNavigate } from 'react-router-dom';
 function UserDetails() {
+
+    const [errorMessage, setErrorMessage] = useState('');
+    const navigete = useNavigate();
+
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -45,11 +49,14 @@ function UserDetails() {
     };
 
     const handleSubmit = () => {
+        navigete('/cart');
         if (validate()) {
             // Proceed to the next step
             console.log('Form is valid');
+            // Launch CartPage component
         } else {
             console.log('Form has errors');
+            setErrorMessage('Please fill in all the required fields');
         }
     };
 
@@ -152,7 +159,7 @@ function UserDetails() {
                 </div>
             </div>
             <div className={style.message}>
-                <p>Please ensure all details are correct before proceeding.</p>
+                <p>{errorMessage}</p>
                 <button className={style.nextButton} onClick={handleSubmit}>Next</button>
             </div>
         </div>

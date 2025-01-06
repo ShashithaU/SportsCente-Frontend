@@ -1,5 +1,6 @@
 import React from "react";
 import style from './PaymentDetails.module.css';
+import { Link } from "react-router-dom";
 
 const PaymentDetails = () => {
     return (
@@ -27,8 +28,8 @@ const PaymentDetails = () => {
                     </div>
                 </div>
                 <div className={style.buttons}>
-                    <button type="button">Back</button>
-                    <button type="submit">Next</button>
+                    <button type="button"><Link to = '/cart'>back</Link></button>
+                    <button type="submit">Place Oder</button>
                 </div>
             </form>
         </div>
