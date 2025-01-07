@@ -10,6 +10,22 @@ const CartPage = () => {
     const [price, setPrice] = useState<number>(0);
     const [Shipping, setShipping] = useState<number>(0);
     const [total, setTotal] = useState<number>(0);
+    const [cartData, setCartData] = useState<any[]>([]);
+
+    useEffect(() => {
+      const fetchCartData = async () => {
+      try {
+        // const response = await fetch('https://api.example.com/cartItems');
+        // const data = await response.json();
+        const data = jsonData;
+        setCartData(data);
+      } catch (error) {
+        console.error('Error fetching cart data:', error);
+      }
+      };
+
+      fetchCartData();
+    }, []);
 
     async function isClicked(id: number, check: boolean): Promise<void> {
       // console.log(id);
@@ -28,7 +44,7 @@ const CartPage = () => {
       var netShipping = 0;
       var total = 0;
       chechedItems.map((item) => {
-        jsonData.map((data) => {
+        cartData.map((data) => {
           if(data.id === item){
             netPrice += data.price;
             netShipping += data.shipping;
@@ -47,9 +63,10 @@ const CartPage = () => {
               <Cart
                 totalPrice = {price}
                 totShipping = {Shipping}
-                total = {total}>
+                total = {total}
+                checkedItemId = {chechedItems}>
     
-                {jsonData.map((item) =>
+                {cartData.map((item) =>
                 <CartItem key={item.id}
                   id={item.id}
                   product = {item.product}
