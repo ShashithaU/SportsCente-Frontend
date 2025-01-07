@@ -5,7 +5,7 @@ import { useState } from "react";
 import ShippingDetails from "./models/ShippingDetailspage/ShippingDetails";
 import CartPage from "./models/CartPage/CartPage";
 import PaymentDetails from "./models/PaymentDetails/PaymentDetails";
-import NotFoundPage from "./models/notFoundPage";
+import NotFoundPage from "./models/NotFoundPage";
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const paletteType = darkMode ? 'dark' : 'light';
@@ -22,7 +22,7 @@ function App() {
       errorElement: <NotFoundPage />
     },
     {
-      path: '/paymaent',
+      path: '/paymaent/:paymentId',
       element: <PaymentDetails />,
       errorElement: <NotFoundPage />
     }

@@ -54,27 +54,27 @@ function UserDetails() {
 
             console.log("Form Data in JSON:", jsonData);
             
-            navigate('/cart');
-            // try {
-            //     const response = await fetch('https://your-api-endpoint.com/user-details', {
-            //         method: 'POST',
-            //         headers: {
-            //             'Content-Type': 'application/json'
-            //         },
-            //         body: JSON.stringify(formData)
-            //     });
+            //navigate('/cart');
+            try {
+                const response = await fetch('http://localhost:8085/api/store/saveShippingDetails', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
 
-            //     if (response.ok) {
-            //         navigate('/cart');
-            //         console.log('Form is valid and data sent to API');
-            //     } else {
-            //         console.log('Failed to send data to API');
-            //         setErrorMessage('Failed to send data to API');
-            //     }
-            // } catch (error) {
-            //     console.error('Error:', error);
-            //     setErrorMessage('An error occurred while sending data to API');
-            // }
+                if (response.ok) {
+                    navigate('/cart');
+                    console.log('Form is valid and data sent to API');
+                } else {
+                    console.log('Failed to send data to API');
+                    setErrorMessage('Failed to send data to API');
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                setErrorMessage('An error occurred while sending data to API');
+            }
         } else {
             console.log('Form has errors');
             setErrorMessage('Please fill in all the required fields');

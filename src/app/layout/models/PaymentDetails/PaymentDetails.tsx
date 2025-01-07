@@ -64,7 +64,7 @@ export default PaymentDetails;
 
 const sendPaymentDetails = async (paymentDetails: any) => {
     try {
-        const response = await fetch('http://localhost:8080/api/payment', {
+        const response = await fetch('http://localhost:8085/api/store/savePaymantDetails', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

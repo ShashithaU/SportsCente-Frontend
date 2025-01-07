@@ -28,7 +28,7 @@ const Cart: React.FC<CartProps> = ({ children, totalPrice, totShipping, total, c
         else{
             console.log("Cart Data in JSON:", JSON.stringify(cartData));
             try {
-                const response = await fetch('https://api.example.com/cart', {
+                const response = await fetch('http://localhost:8085/api/store/saveCheckedItems', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ const Cart: React.FC<CartProps> = ({ children, totalPrice, totShipping, total, c
                 }
                 const data = await response.json();
                 console.log('Success:', data);
-                navigate('/cart');
+                navigate('/paymaent/123');
 
             } catch (error) {
                 console.error('Error:', error);
