@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import style from './UserDetails.module.css';
 import { useNavigate } from 'react-router-dom';
-function UserDetails() {
 
+function UserDetails() {
     const [errorMessage, setErrorMessage] = useState('');
-    const navigete = useNavigate();
+    const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
         addressLine1: '',
         addressLine2: '',
-        city: '',
-        region: '',
+        Province: '',
+        Destrict: '',
         country: '',
         postalCode: ''
     });
@@ -21,8 +21,8 @@ function UserDetails() {
         firstName: '',
         lastName: '',
         addressLine1: '',
-        city: '',
-        region: '',
+        Province: '',
+        Destrict: '',
         country: '',
         postalCode: ''
     });
@@ -40,20 +40,41 @@ function UserDetails() {
         if (!formData.firstName) newErrors.firstName = 'First name is required';
         if (!formData.lastName) newErrors.lastName = 'Last name is required';
         if (!formData.addressLine1) newErrors.addressLine1 = 'Address Line 1 is required';
-        if (!formData.city) newErrors.city = 'City is required';
-        if (!formData.region) newErrors.region = 'Region is required';
+        if (!formData.Province) newErrors.Province = 'City is required';
+        if (!formData.Destrict) newErrors.Destrict = 'Region is required';
         if (!formData.country) newErrors.country = 'Country is required';
         if (!formData.postalCode) newErrors.postalCode = 'Postal code is required';
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     };
 
-    const handleSubmit = () => {
-        navigete('/cart');
+    const handleSubmit = async () => {
         if (validate()) {
-            // Proceed to the next step
-            console.log('Form is valid');
-            // Launch CartPage component
+            const jsonData = JSON.stringify(formData);
+
+            console.log("Form Data in JSON:", jsonData);
+            
+            navigate('/cart');
+            // try {
+            //     const response = await fetch('https://your-api-endpoint.com/user-details', {
+            //         method: 'POST',
+            //         headers: {
+            //             'Content-Type': 'application/json'
+            //         },
+            //         body: JSON.stringify(formData)
+            //     });
+
+            //     if (response.ok) {
+            //         navigate('/cart');
+            //         console.log('Form is valid and data sent to API');
+            //     } else {
+            //         console.log('Failed to send data to API');
+            //         setErrorMessage('Failed to send data to API');
+            //     }
+            // } catch (error) {
+            //     console.error('Error:', error);
+            //     setErrorMessage('An error occurred while sending data to API');
+            // }
         } else {
             console.log('Form has errors');
             setErrorMessage('Please fill in all the required fields');
@@ -69,7 +90,7 @@ function UserDetails() {
                     <input
                         type="text"
                         name="firstName"
-                        placeholder='Enter first name'
+                        placeholder='Enter first name*'
                         value={formData.firstName}
                         onChange={handleChange}
                     />
@@ -80,58 +101,11 @@ function UserDetails() {
                     <input
                         type="text"
                         name="lastName"
-                        placeholder='Enter last name'
+                        placeholder='Enter last name*'
                         value={formData.lastName}
                         onChange={handleChange}
                     />
                     {errors.lastName && <span className={style.error}>{errors.lastName}</span>}
-                </div>
-            </div>
-            <div className={style.formGroup}>
-                <div className={style.inputBlock}>
-                    <label>Address Line 1</label>
-                    <input
-                        type="text"
-                        name="addressLine1"
-                        placeholder='Enter address line 1'
-                        value={formData.addressLine1}
-                        onChange={handleChange}
-                    />
-                    {errors.addressLine1 && <span className={style.error}>{errors.addressLine1}</span>}
-                </div>
-                <div className={style.inputBlock}>
-                    <label>Address Line 2</label>
-                    <input
-                        type="text"
-                        name="addressLine2"
-                        placeholder='Enter address line 2'
-                        value={formData.addressLine2}
-                        onChange={handleChange}
-                    />
-                </div>
-            </div>
-            <div className={style.formGroup}>
-                <div className={style.inputBlock}>
-                    <label>City</label>
-                    <input
-                        type="text"
-                        name="city"
-                        placeholder='Enter city'
-                        value={formData.city}
-                        onChange={handleChange}
-                    />
-                    {errors.city && <span className={style.error}>{errors.city}</span>}
-                </div>
-                <div className={style.inputBlock}>
-                    <label>Street/Province/Region</label>
-                    <input
-                        type="text"
-                        name="region"
-                        placeholder='Enter street/province/region'
-                        value={formData.region}
-                        onChange={handleChange}
-                    />
-                    {errors.region && <span className={style.error}>{errors.region}</span>}
                 </div>
             </div>
             <div className={style.formGroup}>
@@ -147,11 +121,58 @@ function UserDetails() {
                     {errors.country && <span className={style.error}>{errors.country}</span>}
                 </div>
                 <div className={style.inputBlock}>
+                    <label>Address Line 1</label>
+                    <input
+                        type="text"
+                        name="addressLine1"
+                        placeholder='Street, house/apartment/unit*'
+                        value={formData.addressLine1}
+                        onChange={handleChange}
+                    />
+                    {errors.addressLine1 && <span className={style.error}>{errors.addressLine1}</span>}
+                </div>
+                <div className={style.inputBlock}>
+                    <label>Address Line 2</label>
+                    <input
+                        type="text"
+                        name="addressLine2"
+                        placeholder='Apt, suite, unit, etc(optional)'
+                        value={formData.addressLine2}
+                        onChange={handleChange}
+                    />
+                </div>
+            </div>
+            <div className={style.formGroup}>
+                <div className={style.inputBlock}>
+                    <label>Province</label>
+                    <input
+                        type="text"
+                        name="Province"
+                        placeholder='Enter Province*'
+                        value={formData.Province}
+                        onChange={handleChange}
+                    />
+                    {errors.Province && <span className={style.error}>{errors.Province}</span>}
+                </div>
+                <div className={style.inputBlock}>
+                    <label>Destrict</label>
+                    <input
+                        type="text"
+                        name="Destrict"
+                        placeholder='Enter Destrict*'
+                        value={formData.Destrict}
+                        onChange={handleChange}
+                    />
+                    {errors.Destrict && <span className={style.error}>{errors.Destrict}</span>}
+                </div>
+            </div>
+            <div className={style.formGroup}>
+                <div className={style.inputBlock}>
                     <label>Zip/Postal Code</label>
                     <input
                         type="text"
                         name="postalCode"
-                        placeholder='Enter zip/postal code'
+                        placeholder='Enter zip/postal code*'
                         value={formData.postalCode}
                         onChange={handleChange}
                     />
