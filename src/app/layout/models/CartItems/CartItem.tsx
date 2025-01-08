@@ -1,15 +1,14 @@
-import React from 'react';
 import style from './CartItem.module.css';
 
 interface CartItemProps {
-    id: number,
+    id: string,
     product: string,
     price: number,
     image: string,
-    isClicked: (id: number, checked: boolean) => void
+    isClicked: (id: string, checked: boolean) => void
 }
 
-const Cart = ({product, price, image, isClicked, id}: CartItemProps) => {
+const Cart = ({product="product", price = 0.0, image = 'https://via.placeholder.com/150', isClicked, id}: CartItemProps) => {
 
     // const {product, price, image, isClicked} = props;
 
@@ -30,15 +29,5 @@ const Cart = ({product, price, image, isClicked, id}: CartItemProps) => {
             </div>
         </div>
     );
-}
-Cart.defaultProps = { 
-    product: 'Product',
-    price: '00.00',
-    image: 'https://via.placeholder.com/150'
-}
-Cart.type ={
-    product: String,
-    price: String,
-    image: String
 }
 export default Cart;

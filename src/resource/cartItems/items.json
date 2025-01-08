@@ -1,27 +1,27 @@
 [
     {
-        "id": 1,
+        "id": "item01",
         "product": "sticker",
         "price": 1.99,
         "shipping": 20,
         "image": "/images/yae.jpg"
     },
     {
-        "id": 2,
+        "id": "item02",
         "product": "shirt",
         "price": 19.99,
         "shipping": 40,
         "image": "/images/yae.jpg"
     },
     {
-        "id": 3,
+        "id": "item03",
         "product": "hoodie",
         "price": 29.99,
         "shipping": 0.0,
         "image": "/images/yae.jpg"
     },
     {
-        "id": 4,
+        "id": "item04",
         "product": "mug",
         "price": 9.99,
         "shipping": 20,

@@ -3,15 +3,15 @@ import BucketSummery from '../BucketSummary/BucketSummery';
 import style from './Cart.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 
-interface CartProps {
+interface Cart {
     children: ReactNode;
     totalPrice: number;
     totShipping: number;
     total: number
-    checkedItemId: number[];
+    checkedItemId: string[];
 }
 
-const Cart: React.FC<CartProps> = ({ children, totalPrice, totShipping, total, checkedItemId }) => {
+const Cart: React.FC<Cart> = ({ children, totalPrice, totShipping, total, checkedItemId }) => {
     const navigate = useNavigate();
     const cartData = {
         totalPrice,

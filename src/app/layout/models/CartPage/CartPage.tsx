@@ -6,7 +6,7 @@ import jsonData from '../../../../resource/cartItems/items.json';
 
 const CartPage = () => {
 
-    const [chechedItems, setChechedItems] = useState<number[]>([]); 
+    const [chechedItems, setChechedItems] = useState<string[]>([]); 
     const [price, setPrice] = useState<number>(0);
     const [Shipping, setShipping] = useState<number>(0);
     const [total, setTotal] = useState<number>(0);
@@ -27,7 +27,7 @@ const CartPage = () => {
       fetchCartData();
     }, []);
 
-    async function isClicked(id: number, check: boolean): Promise<void> {
+    async function isClicked(id: string, check: boolean): Promise<void> {
       // console.log(id);
       // console.log(check);
       setChechedItems((prevCheckedItems) => {
