@@ -1,9 +1,9 @@
-import React, {ReactNode} from 'react';
+import {ReactNode} from 'react';
 import BucketSummery from '../BucketSummary/BucketSummery';
 import style from './Cart.module.css';
 import { Link, useNavigate } from 'react-router-dom';
 
-interface Cart {
+interface CartTypes {
     children: ReactNode;
     totalPrice: number;
     totShipping: number;
@@ -11,7 +11,7 @@ interface Cart {
     checkedItemId: string[];
 }
 
-const Cart: React.FC<Cart> = ({ children, totalPrice, totShipping, total, checkedItemId }) => {
+const Cart = ({ children, totalPrice, totShipping, total, checkedItemId }: CartTypes) => {
     const navigate = useNavigate();
     const cartData = {
         totalPrice,
@@ -62,7 +62,7 @@ const Cart: React.FC<Cart> = ({ children, totalPrice, totShipping, total, checke
                 <p>Total: {cartData.total}</p>
             </BucketSummery>
             <div className={style.CartButton}>
-                <button><Link to='/'>Back</Link></button>
+                <button><Link to='/userDetails'>Back</Link></button>
                 <button onClick={handleNextClick}>next</button>
             </div>
         </div>

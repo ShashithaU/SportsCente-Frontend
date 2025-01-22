@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import style from './UserDetails.module.css';
 import { useNavigate } from 'react-router-dom';
 
+
 function UserDetails() {
     const [errorMessage, setErrorMessage] = useState('');
     const navigate = useNavigate();

@@ -6,13 +6,20 @@ import ShippingDetails from "./models/ShippingDetailspage/ShippingDetails";
 import CartPage from "./models/CartPage/CartPage";
 import PaymentDetails from "./models/PaymentDetails/PaymentDetails";
 import NotFoundPage from "./models/NotFoundPage";
+import Home from "./models/Home";
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const paletteType = darkMode ? 'dark' : 'light';
 
   const router = createBrowserRouter([
+
     {
       path: "/",
+      element: <Home />,
+      errorElement: <NotFoundPage />
+    },
+    {
+      path: "/userDetails",
       element: <ShippingDetails />,
       errorElement: <NotFoundPage />
     },
