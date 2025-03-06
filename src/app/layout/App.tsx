@@ -1,15 +1,25 @@
 import { Container, CssBaseline, ThemeProvider, createTheme } from "@mui/material";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Header from "./Header";
-import { useState } from "react";
-import ShippingDetails from "./models/ShippingDetailspage/ShippingDetails";
-import CartPage from "./models/CartPage/CartPage";
-import PaymentDetails from "./models/PaymentDetails/PaymentDetails";
-import NotFoundPage from "./models/NotFoundPage";
-import Home from "./models/Home";
+
 function App() {
   const [darkMode, setDarkMode] = useState(false);
   const paletteType = darkMode ? 'dark' : 'light';
+  const dispatch = useAppDispatch();
+  const [loading, setLoading] = useState(true);
+
+  useEffect(()=>{
+    const basket = getBasketFromLocalStorage();
+    dispatch(fetchCurrentUser());
+    if(basket){
+      agent.Basket.get()
+      .then(basket=>dispatch(setBasket(basket)))
+      .catch(error=>console.log(error))
+      .finally(()=>setLoading(false))
+    }else{
+      setLoading(false);
+    }
+  })
 
   const router = createBrowserRouter([
 
@@ -44,14 +54,14 @@ function App() {
   function handleThemeChange(){
     setDarkMode(!darkMode);
   }
+  if(loading)return <Spinner message="Getting Basket..."/>
   return (
     <ThemeProvider theme={theme}>
+      <ToastContainer position="bottom-right" hideProgressBar theme="colored"/>
     <CssBaseline/>
     <Header darkMode={darkMode} handleThemeChange={handleThemeChange}/>
     <Container sx={{ paddingTop: "64px" }}>
-      
-      <RouterProvider router={router} />
-    
+
     </Container>
     </ThemeProvider>
   )
