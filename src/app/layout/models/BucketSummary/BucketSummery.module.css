@@ -1,0 +1,26 @@
+.BucketSummeryContainer{
+    padding: 20px;
+
+    color: wheat;
+}
+
+.BucketSummeryContainer p {
+    padding: 10px;
+
+    width: 100%;
+    height: fit-content;
+}
+
+.BucketSummery{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.BucketSummeryContainer .BucketSummery p{
+    padding: 10px;
+
+    width: 80%;
+    height: fit-content;
+
+}

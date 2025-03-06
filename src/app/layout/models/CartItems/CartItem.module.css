@@ -1,0 +1,28 @@
+.cartContainer{
+    color: white;
+
+    margin-top: 30px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+}
+
+.cartContainer .productImag{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.cartContainer .productImag img{
+    width: 100px;
+}
+
+.cartContainer .productName{
+    width: 100%;
+}
+
+.cartContainer .productPrice{
+    width: 100%;
+}
